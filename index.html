@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Hasibur Rahman | Personal Website</title>
+  <meta name="description" content="Modern academic personal website of Md Hasibur Rahman" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0f1f;
+      --bg-soft: #10182d;
+      --panel: rgba(17, 24, 39, 0.72);
+      --panel-strong: rgba(15, 23, 42, 0.88);
+      --text: #eaf2ff;
+      --muted: #9fb0cc;
+      --line: rgba(255,255,255,0.08);
+      --accent: #6ee7f9;
+      --accent-2: #8b5cf6;
+      --accent-3: #22c55e;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --max-width: 1160px;
+      --radius: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(110, 231, 249, 0.14), transparent 24%),
+        radial-gradient(circle at top right, rgba(139, 92, 246, 0.16), transparent 30%),
+        linear-gradient(180deg, #060b16 0%, #0b1222 45%, #0a0f1f 100%);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 85%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid rgba(110, 231, 249, 0.18);
+      border-radius: 999px;
+      background: rgba(110, 231, 249, 0.08);
+      color: #c9f8ff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 10, 20, 0.58);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      color: #08111f;
+      font-weight: 800;
+      box-shadow: 0 12px 30px rgba(110, 231, 249, 0.2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero {
+      min-height: calc(100vh - 80px);
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 4.5rem 0 2.5rem;
+    }
+
+    .hero-copy h1 {
+      margin-top: 1rem;
+      font-size: clamp(2.8rem, 7vw, 5.3rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      max-width: 760px;
+    }
+
+    .hero-copy h1 .gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #bff8ff 40%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy p {
+      margin-top: 1.25rem;
+      max-width: 700px;
+      font-size: 1.08rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #93c5fd);
+      color: #0b1222;
+      box-shadow: 0 18px 40px rgba(110, 231, 249, 0.18);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .hero-stats {
+      margin-top: 1.8rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      max-width: 720px;
+    }
+
+    .stat {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+
+    .stat span {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .glass-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(17,24,39,0.78), rgba(11,18,34,0.88));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(110,231,249,0.12), transparent 30%, rgba(139,92,246,0.12) 100%);
+      pointer-events: none;
+    }
+
+    .profile-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #67e8f9, #8b5cf6);
+      display: grid;
+      place-items: center;
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #08111f;
+      flex-shrink: 0;
+    }
+
+    .profile-top h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .profile-top p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .mini-card {
+      padding: 1rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mini-card h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .mini-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    section {
+      padding: 3.5rem 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      position: relative;
+      padding: 1.4rem;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(110,231,249,0.05), transparent 35%, rgba(139,92,246,0.05) 100%);
+      pointer-events: none;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.55rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag {
+      padding: 0.38rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #d8fbff;
+      background: rgba(110,231,249,0.08);
+      border: 1px solid rgba(110,231,249,0.14);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .time-badge {
+      padding: 0.8rem 0.95rem;
+      border-radius: 18px;
+      background: rgba(110,231,249,0.08);
+      border: 1px solid rgba(110,231,249,0.12);
+      color: #cffafe;
+      font-weight: 700;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .project-card {
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 1rem;
+      color: #d9faff;
+      font-weight: 600;
+    }
+
+    .contact-panel {
+      padding: 2rem;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at top left, rgba(110,231,249,0.12), transparent 35%),
+        linear-gradient(180deg, rgba(17,24,39,0.9), rgba(11,18,34,0.94));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.03em;
+    }
+
+    .contact-panel p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.5rem;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .grid-2,
+      .grid-3,
+      .timeline-item,
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 3rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head,
+      nav,
+      .footer-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="brand-mark">HR</div>
+          <span>Md Hasibur Rahman</span>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact" class="nav-cta">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-copy">
+        <span class="pill">Statistics • Research • Data Science</span>
+        <h1>
+          A modern academic website for a <span class="gradient">researcher in statistics and applied data analysis</span>
+        </h1>
+        <p>
+          I work on Bayesian methods, empirical likelihood, survey inference, and computational statistics. My research focuses on building practical and rigorous methods for complex data settings, especially when sampling and selection mechanisms create bias.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Let’s Connect</a>
+          <a href="#projects" class="btn btn-secondary">See Projects</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>Research</strong>
+            <span>Bayesian empirical likelihood and robust inference</span>
+          </div>
+          <div class="stat">
+            <strong>Teaching</strong>
+            <span>Statistics support, grading, and course assistance</span>
+          </div>
+          <div class="stat">
+            <strong>Tools</strong>
+            <span>R, SAS, Python, LaTeX, GitHub, simulation workflows</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="glass-card profile-card">
+          <div class="profile-top">
+            <div class="avatar">MH</div>
+            <div>
+              <h3>Md Hasibur Rahman</h3>
+              <p>Researcher in statistics, Bayesian inference, and data-driven methodology</p>
+            </div>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini-card">
+              <h4>Main Interest</h4>
+              <p>Bayesian empirical likelihood for complex and non-probability samples</p>
+            </div>
+            <div class="mini-card">
+              <h4>Work Style</h4>
+              <p>Methodologically careful, computation-focused, and application-oriented</p>
+            </div>
+            <div class="mini-card">
+              <h4>Strength</h4>
+              <p>Turning difficult statistical problems into practical workflows</p>
+            </div>
+            <div class="mini-card">
+              <h4>Platform</h4>
+              <p>GitHub Pages-ready portfolio with a clean and modern layout</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <div class="section-head">
+        <div>
+          <span class="pill">About</span>
+          <h2>Who I am</h2>
+        </div>
+        <p>
+          I am interested in statistical inference, computation, and real-world data problems. My work connects theory and application, with a focus on settings where standard models are not enough.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Research Direction</h3>
+          <p>Bayesian methods, empirical likelihood, survey sampling, causal thinking, and computational statistics.</p>
+        </article>
+        <article class="card">
+          <h3>Technical Skills</h3>
+          <p>R, SAS, Python, LaTeX, GitHub, reproducible workflows, simulation studies, and data visualization.</p>
+        </article>
+        <article class="card">
+          <h3>Academic Aim</h3>
+          <p>Develop robust methods that remain useful when data are incomplete, biased, or collected through complex designs.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="research" class="container">
+      <div class="section-head">
+        <div>
+          <span class="pill">Research</span>
+          <h2>What I work on</h2>
+        </div>
+        <p>
+          My research brings together flexible inference, design-aware methods, and computational tools for challenging data environments.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>Bayesian Empirical Likelihood</h3>
+          <p>
+            I study how Bayesian ideas can be combined with empirical likelihood so that inference remains flexible without requiring a fully specified parametric model.
+          </p>
+          <div class="tags">
+            <span class="tag">Bayesian Inference</span>
+            <span class="tag">Empirical Likelihood</span>
+            <span class="tag">Semiparametrics</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Inference for Non-Probability Sampling</h3>
+          <p>
+            I work on methods that address selection bias and improve inference when data do not come from a classical probability sample.
+          </p>
+          <div class="tags">
+            <span class="tag">Selection Bias</span>
+            <span class="tag">Survey Inference</span>
+            <span class="tag">Applied Statistics</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Simulation-Based Method Comparison</h3>
+          <p>
+            I use simulation to compare methods under realistic conditions such as misspecification, limited information, and informative sampling.
+          </p>
+          <div class="tags">
+            <span class="tag">Simulation</span>
+            <span class="tag">Method Evaluation</span>
+            <span class="tag">Computation</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Applied Quantitative Research</h3>
+          <p>
+            I enjoy translating statistical methods into practical tools for data analysis, interpretation, and evidence-based decision support.
+          </p>
+          <div class="tags">
+            <span class="tag">Data Analysis</span>
+            <span class="tag">Modeling</span>
+            <span class="tag">Decision Support</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="container">
+      <div class="section-head">
+        <div>
+          <span class="pill">Experience</span>
+          <h2>What I have done</h2>
+        </div>
+        <p>
+          My background includes research, academic support, and analytical work across statistical and computational settings.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time-badge">Research</div>
+          <article class="card">
+            <h3>Methodological and Applied Research</h3>
+            <p>
+              Conducted research involving statistical inference, simulation, scientific writing, and computational implementation for complex survey and selection-related problems.
+            </p>
+          </article>
+        </div>
+
+        <div class="timeline-item">
+          <div class="time-badge">Teaching</div>
+          <article class="card">
+            <h3>Instructional Support</h3>
+            <p>
+              Assisted with grading, course support, student questions, and the communication of statistical concepts in a clear and practical way.
+            </p>
+          </article>
+        </div>
+
+        <div class="timeline-item">
+          <div class="time-badge">Analysis</div>
+          <article class="card">
+            <h3>Reproducible Data Workflows</h3>
+            <p>
+              Built workflows for cleaning data, running analyses, documenting results, and organizing work through transparent and reproducible computational tools.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <div class="section-head">
+        <div>
+          <span class="pill">Projects</span>
+          <h2>Selected work</h2>
+        </div>
+        <p>
+          A few examples of projects that can be highlighted on this website. You can later replace these with exact titles, links, and publication details.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="card project-card">
+          <div>
+            <h3>Thesis Research</h3>
+            <p>
+              A study of Bayesian empirical likelihood-based methods for complex survey data, with emphasis on inference under non-probability sampling.
+            </p>
+          </div>
+          <a href="#contact" class="project-link">Add paper or PDF link →</a>
+        </article>
+
+        <article class="card project-card">
+          <div>
+            <h3>Method Comparison Studies</h3>
+            <p>
+              Simulation experiments comparing alternative estimators and inferential methods under difficult data-generating conditions.
+            </p>
+          </div>
+          <a href="#contact" class="project-link">Add code repository →</a>
+        </article>
+
+        <article class="card project-card">
+          <div>
+            <h3>Teaching and Workshop Materials</h3>
+            <p>
+              Course support materials, workshop slides, and technical examples developed for statistics learners and research audiences.
+            </p>
+          </div>
+          <a href="#contact" class="project-link">Add slides or notes →</a>
+        </article>
+
+        <article class="card project-card">
+          <div>
+            <h3>Reproducible GitHub Work</h3>
+            <p>
+              Organized analysis scripts, reports, and project documentation to make research outputs easier to maintain and share.
+            </p>
+          </div>
+          <a href="#contact" class="project-link">Add GitHub repo →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <div class="contact-panel">
+        <span class="pill">Contact</span>
+        <h2>Let’s connect</h2>
+        <p>
+          Replace the placeholder links below with your real email, CV, Google Scholar, LinkedIn, and GitHub profile before publishing the site.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:your.email@example.com" class="btn btn-primary">Email</a>
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
+          <a href="#" class="btn btn-secondary">Google Scholar</a>
+          <a href="#" class="btn btn-secondary">CV</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <p>© 2026 Md Hasibur Rahman</p>
+      <p>Built as a modern single-file website for GitHub Pages</p>
+    </div>
+  </footer>
+</body>
+</html>
