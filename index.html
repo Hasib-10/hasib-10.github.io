@@ -10,14 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f8fafc;
+      --bg: #fafafa;
       --panel: #ffffff;
-      --text: #1e293b;
-      --muted: #475569;
-      --line: #dbe3ee;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --line: #e5e7eb;
       --accent: #1d4ed8;
-      --accent-soft: #eff6ff;
-      --max-width: 1000px;
+      --max-width: 980px;
     }
 
     * {
@@ -34,7 +33,7 @@
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     a {
@@ -63,8 +62,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 0;
       gap: 1rem;
+      padding: 1rem 0;
     }
 
     .site-title {
@@ -75,8 +74,8 @@
 
     .nav-links {
       display: flex;
-      gap: 1.25rem;
       flex-wrap: wrap;
+      gap: 1.1rem;
     }
 
     .nav-links a {
@@ -91,26 +90,22 @@
     .hero {
       display: grid;
       grid-template-columns: 220px 1fr;
-      gap: 2.25rem;
+      gap: 2.5rem;
       align-items: start;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
 
+    .photo-placeholder,
     .profile-photo {
-      width: 100%;
-      max-width: 220px;
-      border-radius: 8px;
+      width: 220px;
+      max-width: 100%;
       border: 1px solid var(--line);
-      object-fit: cover;
-      background: #e2e8f0;
+      border-radius: 8px;
+      background: #e5e7eb;
     }
 
     .photo-placeholder {
-      width: 220px;
       height: 260px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #e2e8f0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -118,11 +113,16 @@
       font-size: 0.95rem;
     }
 
+    .profile-photo {
+      display: block;
+      object-fit: cover;
+    }
+
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.35rem;
       line-height: 1.15;
-      margin-bottom: 0.75rem;
       font-weight: 700;
+      margin-bottom: 0.6rem;
     }
 
     .subtitle {
@@ -132,31 +132,33 @@
     }
 
     .hero p {
-      margin-bottom: 1rem;
-      color: var(--text);
+      margin-bottom: 0.95rem;
     }
 
-    .links {
+    .quick-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.9rem;
+      gap: 0.9rem 1.2rem;
       margin-top: 1rem;
-    }
-
-    .links a {
-      font-weight: 500;
+      font-size: 0.97rem;
     }
 
     section {
-      margin-top: 2.5rem;
-      padding-top: 2rem;
       border-top: 1px solid var(--line);
+      padding-top: 2rem;
+      margin-top: 2rem;
     }
 
     h2 {
       font-size: 1.35rem;
       margin-bottom: 1rem;
       font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
     }
 
     p {
@@ -169,8 +171,17 @@
     }
 
     li {
-      margin-bottom: 0.5rem;
-      color: var(--text);
+      margin-bottom: 0.45rem;
+    }
+
+    .entry {
+      margin-bottom: 1.5rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.45rem;
     }
 
     .two-col {
@@ -179,46 +190,23 @@
       gap: 2rem;
     }
 
-    .entry {
-      margin-bottom: 1.4rem;
-    }
-
-    .entry h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.25rem;
-      font-weight: 600;
-    }
-
-    .meta {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .note {
+    .small {
       color: var(--muted);
       font-size: 0.95rem;
     }
 
     footer {
       margin-top: 4rem;
-      padding-top: 1.5rem;
+      padding-top: 1.25rem;
       border-top: 1px solid var(--line);
       color: var(--muted);
       font-size: 0.95rem;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 820px) {
       .hero,
       .two-col {
         grid-template-columns: 1fr;
-      }
-
-      .photo-placeholder,
-      .profile-photo {
-        max-width: 180px;
-        width: 180px;
-        height: auto;
       }
 
       nav {
@@ -236,8 +224,10 @@
         <div class="nav-links">
           <a href="#about">About</a>
           <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
           <a href="#experience">Experience</a>
           <a href="#teaching">Teaching</a>
+          <a href="#activities">Activities</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
@@ -252,20 +242,20 @@
 
       <div>
         <h1>Md Hasibur Rahman</h1>
-        <div class="subtitle">Graduate Student in Statistics, University of Nebraska–Lincoln</div>
+        <div class="subtitle">PhD Student in Statistics, University of Nebraska–Lincoln</div>
         <p>
-          I am a graduate student in Statistics at the University of Nebraska–Lincoln, advised by Dr. Sanjay Chaudhuri. My thesis, <em>On Bayesian Empirical Likelihood</em>, focuses on developing methods for inference in complex survey and non-probability data settings.
+          I am a graduate student in Statistics at the University of Nebraska–Lincoln. My research focuses on Bayesian empirical likelihood, survey inference, and robust statistical methods for complex survey and non-probability data.
         </p>
         <p>
-          My research interests include Bayesian methods, empirical likelihood, survey inference, and computational statistics. I am particularly interested in developing robust methods for complex data settings where standard assumptions may not hold.
+          I am advised by Dr. Sanjay Chaudhuri, and my thesis, <em>Bayesian Empirical Likelihood-Based Method for Complex Survey Data with Application to Non-Probability Sampling</em>, studies methods for inference under selection bias and complex sampling settings.
         </p>
-
-        <div class="links">
+        <div class="quick-links">
           <a href="mailto:hasiburrahman086@gmail.com">Email</a>
+          <a href="tel:+19125419894">Phone</a>
           <a href="https://github.com/hasib-10" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="#">CV</a>
-          <a href="https://scholar.google.com/citations?user=sqGUxJYAAAAJ&hl=en">Google Scholar</a>
-          <a href="www.linkedin.com/in/md-hasibur-rahman10">LinkedIn</a>
+          <a href="#">Google Scholar</a>
+          <a href="#">LinkedIn</a>
         </div>
       </div>
     </section>
@@ -273,23 +263,21 @@
     <section id="about">
       <h2>About</h2>
       <p>
-        I am interested in statistical methodology and its application to real-world data problems. My work aims to connect theoretical development with practical inference, especially in settings involving selection bias, complex sampling, and incomplete model assumptions.
+        My interests include Bayesian methods, empirical likelihood, semiparametric inference, survey statistics, and computational approaches for modern data analysis. I am particularly interested in developing methods that remain reliable when standard assumptions such as probability sampling or correct model specification do not fully hold.
       </p>
       <p>
-        My broader interests include Bayesian inference, semiparametric methods, survey statistics, and computational approaches for modern data analysis.
+        Beyond methodology, I enjoy using statistical tools to address applied data problems through simulation, reproducible workflows, and clear technical communication.
       </p>
     </section>
 
     <section id="research">
       <h2>Research</h2>
       <div class="entry">
-        <h3>Thesis</h3>
-        <div class="meta">Advisor: Dr. Sanjay Chaudhuri</div>
+        <h3>Master’s Thesis</h3>
+        <div class="meta">University of Nebraska–Lincoln · Advisor: Dr. Sanjay Chaudhuri</div>
+        <p><em>Bayesian Empirical Likelihood-Based Method for Complex Survey Data with Application to Non-Probability Sampling</em></p>
         <p>
-          <em>On Bayesian Empirical Likelihood-based Method for Complex Survey Data with Application to Non-probability Sampling</em>
-        </p>
-        <p>
-          My thesis develops a Bayesian empirical likelihood (BEL) framework for inference under complex survey designs and extends it to non-probability sampling.
+          My thesis develops Bayesian extensions of empirical likelihood for complex survey designs and non-probability samples. The work includes methodological development, simulation studies in R, and applications to real-world data.
         </p>
       </div>
 
@@ -299,50 +287,115 @@
           <li>Bayesian empirical likelihood</li>
           <li>Survey and non-probability sampling</li>
           <li>Statistical inference under selection bias</li>
-          <li>Computational methods and simulation studies</li>
+          <li>Simulation studies and computational statistics</li>
         </ul>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <div class="entry">
+        <p>
+          Das, P., Afroz, F., Rahman, M. H., &amp; Shabuz, Z. R. (2025). Comparison of two measures of relative importance of predictors in logistic regression. <em>Discover Applied Science</em>, 7, 352.
+        </p>
+      </div>
+      <div class="entry">
+        <p>
+          Das, S., Mandal, T., Spurgeon, R., Rahman, M. H., et al. (2025). Association Between Routes of Tobacco Use and Hypertension Among Adult Rural People in Bangladesh: A Cross-Sectional Study. <em>Tobacco Use Insights</em>, 18.
+        </p>
       </div>
     </section>
 
     <section id="experience">
       <h2>Experience</h2>
       <div class="entry">
-        <h3>Graduate Research</h3>
-        <div class="meta">University of Nebraska–Lincoln</div>
+        <h3>Graduate Teaching Assistant</h3>
+        <div class="meta">University of Nebraska–Lincoln · August 2024 – Present</div>
         <p>
-          Conduct research in statistical inference, Bayesian methodology, and empirical likelihood, with a focus on complex survey and non-probability data.
+          Supported undergraduate statistics instruction through teaching statistical programming and core statistical concepts, preparing course materials, and assisting students with analytical problem solving.
         </p>
       </div>
 
       <div class="entry">
-        <h3>Data Analysis and Computation</h3>
+        <h3>Graduate Research Assistant</h3>
+        <div class="meta">University of Nebraska–Lincoln · Summer 2025</div>
         <p>
-          Use R, SAS, Python, and LaTeX for simulation studies, statistical modeling, reproducible analysis, and academic writing.
+          Conducted simulation studies in R, prepared research datasets, assisted with methodological development, and contributed to manuscript preparation related to Bayesian empirical likelihood methods.
+        </p>
+      </div>
+
+      <div class="entry">
+        <h3>Business Analysis Intern</h3>
+        <div class="meta">BRAC IT Services Limited · June 2022 – September 2022</div>
+        <p>
+          Analyzed organizational data, identified trends and process issues, and prepared technical reports and documentation for end users and internal teams.
         </p>
       </div>
     </section>
 
     <section id="teaching">
       <h2>Teaching</h2>
-      <div class="entry">
-        <h3>Teaching and Academic Support</h3>
-        <p>
-          Supported statistics courses through grading, course assistance, and communication of statistical concepts to students.
-        </p>
+      <p>
+        My teaching experience includes supporting undergraduate statistics courses through grading, instruction, course assistance, and helping students understand R-based statistical analysis and core quantitative concepts.
+      </p>
+    </section>
+
+    <section id="activities">
+      <h2>Activities and Leadership</h2>
+      <div class="two-col">
+        <div>
+          <div class="entry">
+            <h3>Judge, Summer Research Symposium</h3>
+            <div class="meta">University of Nebraska–Lincoln · August 2025</div>
+          </div>
+          <div class="entry">
+            <h3>Judge, Data Driven: Statistics and Data Science Field Day</h3>
+            <div class="meta">University of Nebraska–Lincoln · March 2025</div>
+          </div>
+          <div class="entry">
+            <h3>Treasurer, Bangladesh Student Association</h3>
+            <div class="meta">University of Nebraska–Lincoln · 2025</div>
+          </div>
+        </div>
+        <div>
+          <div class="entry">
+            <h3>Winner, Travelers UMC</h3>
+            <div class="meta">November 2025</div>
+            <p class="small">Applied predictive modeling to large datasets to evaluate model performance and optimize business outcomes.</p>
+          </div>
+          <div class="entry">
+            <h3>Participant, UNL–Bayer Hackathon</h3>
+            <div class="meta">October 2025</div>
+            <p class="small">Worked on a breeding company scenario using General Combining Ability models to maximize genetic gain under resource constraints.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="two-col">
+        <div>
+          <ul>
+            <li><strong>Programming:</strong> R, Python, SAS, SPSS, STATA</li>
+            <li><strong>Statistical Areas:</strong> Regression, simulation, Bayesian modeling, hypothesis testing</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li><strong>Tools:</strong> LaTeX, MS Excel, Tableau</li>
+            <li><strong>Visualization and Workflow:</strong> ggplot2, reproducible analysis, technical writing</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:your.email@example.com">your.email@example.com</a>
-      </p>
-      <p>
-        GitHub: <a href="https://github.com/hasib-10" target="_blank" rel="noopener noreferrer">github.com/hasib-10</a>
-      </p>
-      <p class="note">
-        Replace the placeholder links for CV, Google Scholar, LinkedIn, and email before publishing.
-      </p>
+      <p>Email: <a href="mailto:hasiburrahman086@gmail.com">hasiburrahman086@gmail.com</a></p>
+      <p>Phone: <a href="tel:+19125419894">(+1) 912-541-9894</a></p>
+      <p>GitHub: <a href="https://github.com/hasib-10" target="_blank" rel="noopener noreferrer">github.com/hasib-10</a></p>
+      <p class="small">Add your CV, Google Scholar, LinkedIn, and profile photo links before publishing the final version.</p>
     </section>
 
     <footer>
